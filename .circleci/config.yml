@@ -4,14 +4,12 @@ version: 2.1
 jobs: 
   build:
     docker:
-      # user standard gcc to build. 
-      # In a real environment we would want to install the cross-compile toolchain and cache that image
-      -image: vicarahq/segger-embedded-studio:5.30
+      - image: vicarahq/segger-embedded-studio:5.30
     steps: 
       - checkout
       - run:
-        name: Build
-          emBuild --config "Arm Debug" --project "ci_test" ci_test.emProject
+          name: Build
+          command: emBuild --config "Arm Debug" --project "ci_test" ci_test.emProject
 
 # Orchestrate or schedule a set of jobs
 
