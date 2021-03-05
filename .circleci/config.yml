@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run:
           name: Build
-          command: emBuild --config "Arm Debug" --project "ci_test" ci_test.emProject
+          command: /ses/bin/emBuild --config "Arm Debug" --project "ci_test" ci_test.emProject
 
 # Orchestrate or schedule a set of jobs
 
