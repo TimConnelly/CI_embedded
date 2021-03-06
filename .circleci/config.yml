@@ -1,13 +1,23 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
-# Use a package of configuration called an orb.
-orbs:
-  # Declare a dependency on the welcome-orb
-  welcome: circleci/welcome-orb@0.4.1
+
+jobs: 
+  build:
+    docker:
+      # user standard gcc to build. 
+      # In a real environment we would want to install the cross-compile toolchain and cache that image
+      -image: vicarahq/segger-embedded-studio:5.30
+    steps: 
+      - checkout
+      - run:
+        name: Build
+          emBuild --config "Arm Debug" --project "ci_test" ci_test.emProject
+
 # Orchestrate or schedule a set of jobs
+
 workflows:
   # Name the workflow "welcome"
   welcome:
     # Run the welcome/run job in its own container
     jobs:
-      - welcome/run
+      - build
