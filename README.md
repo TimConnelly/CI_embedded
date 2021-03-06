@@ -1,0 +1,1 @@
+This is a sample project for building an embedded project with CircleCI.
