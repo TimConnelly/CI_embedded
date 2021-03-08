@@ -12,10 +12,8 @@ jobs:
           command: /ses/bin/emBuild -config "Debug" -project "ci_test" ci_test.emProject
 
 # Orchestrate or schedule a set of jobs
-
 workflows:
-  # Name the workflow "welcome"
-  welcome:
+  build:
     # Run the welcome/run job in its own container
     jobs:
       - build
