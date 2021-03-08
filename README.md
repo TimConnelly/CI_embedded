@@ -1,3 +1,5 @@
+[![TimConnelly](https://circleci.com/gh/TimConnelly/CI_embedded.svg?style=shield)](https://circleci.com/gh/TimConnelly/CI_embedded)
+
 A sample project demonstrating how to build an embedded project with Segger Embedded Studio on CircleCI. 
 
 To simplify startup, we use the a [Docker image](https://hub.docker.com/r/vicarahq/segger-embedded-studio/tags?page=1&ordering=last_updated) with SES already installed. Apart from a sample situation, we would want to create our own Docker image for control over packages, versioning, security and caching the image.
