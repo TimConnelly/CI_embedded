@@ -51,7 +51,8 @@ jobs:
             type=pep440,pattern={{version}},value=5.42.0
       
       - name: Echo Tags
-        run echo "{{ steps.meta.outputs.tags }}"
+        run: echo "{{ steps.meta.outputs.tags }}"
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
