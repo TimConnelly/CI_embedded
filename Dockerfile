@@ -1,4 +1,4 @@
-FROM jenkins/ssh-agent:latest
+FROM debian:latest
 
 # Jenkins SSH config 
 # RUN mkdir /home/jenkins/.ssh

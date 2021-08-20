@@ -42,7 +42,6 @@ jobs:
         with:
           context: .
           push: true
-          target: base
           tags: |
             ses_build:5.42
           # hue/base:latest 
