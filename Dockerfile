@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM ubuntu:latest
 
 # Jenkins SSH config 
 # RUN mkdir /home/jenkins/.ssh
@@ -9,6 +9,7 @@ FROM debian:latest
 
 RUN apt-get update && DEBIAN_FRONTEND="noninteractive" TZ="America/New_York" apt-get install -y \
     build-essential \
+    wget \
     git \
     zip unzip \
     libx11-6 libxrender1 libfontconfig1 libxext6 
