@@ -54,7 +54,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ env.IMAGE_NAME }}:5.42
+            ghcr.io/${{ github.repository }}:${{ github.sha }}
 #          ${{ steps.meta.outputs.tags }}
 #          ghcr.io/ses_build:actions_build_container:ses_build:5.42": invalid reference format
           # hue/base:latest 
