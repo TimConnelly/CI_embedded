@@ -44,18 +44,20 @@ jobs:
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        uses: docker/metadata-action@v3
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=semver,pattern={{major}}.{{minor}}=5.42
       
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: |
-            ghcr.io/${{ github.repository }}:${{ github.sha }}
-#          ${{ steps.meta.outputs.tags }}
+          tags: |           
+            ${{ steps.meta.outputs.tags }}
+#          ghcr.io/${{ github.repository }}:${{ github.sha }}
 #          ghcr.io/ses_build:actions_build_container:ses_build:5.42": invalid reference format
           # hue/base:latest 
           labels: ${{ steps.meta.outputs.labels }}
