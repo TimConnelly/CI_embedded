@@ -54,7 +54,9 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ steps.meta.outputs.tags }}:ses_build:5.42
+            ghcr.io/${{ env.IMAGE_NAME }}:5.42
+#          ${{ steps.meta.outputs.tags }}
+#          ghcr.io/ses_build:actions_build_container:ses_build:5.42": invalid reference format
           # hue/base:latest 
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=local,src=/tmp/.buildx-cache
