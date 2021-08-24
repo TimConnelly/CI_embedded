@@ -2,9 +2,13 @@ name: Build Base Docker Container
 
 on: 
   push:
-    branches: [ actions_build_container ] 
+    branches: [ actions_build_container ]
+    paths: 
+      - 'Dockerfile'
   pull_request:
     branches: [ actions_build_container ] 
+    paths: 
+      - 'Dockerfile'
 
   # Allows running workflow manually from Actions tab
   workflow_dispatch:
@@ -60,9 +64,7 @@ jobs:
           push: true
           tags: |           
             ${{ steps.meta.outputs.tags }}
-#          ghcr.io/${{ github.repository }}:${{ github.sha }}
-#          ghcr.io/ses_build:actions_build_container:ses_build:5.42": invalid reference format
-          # hue/base:latest 
+          target: ses_build
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
