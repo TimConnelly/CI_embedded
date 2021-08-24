@@ -37,7 +37,7 @@ jobs:
       - name: Pull base image
         run: |
           echo ${{ secrets.GITHUB_TOKEN }} | docker pull ghcr.io/timconnelly/ses_build:latest 
-          docker tag ghcr.io/timconnelly/ses_build:latest base
+          docker tag ghcr.io/timconnelly/ses_build:latest ses_build
           docker images
           docker build --cache-from=base -t ses_full .
-          docker run --rm -i ses_full:latest bash -c "/opt/ses/bin/embuild -help"
+          docker run --rm -i ses_full bash -c "/opt/ses/bin/emBuild -help"
