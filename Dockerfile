@@ -7,8 +7,6 @@ RUN apt-get update && DEBIAN_FRONTEND="noninteractive" TZ="America/New_York" apt
     zip unzip \
     libx11-6 libxrender1 libfontconfig1 libxext6 
 
-FROM ses_build:latest as ses_full
-
 WORKDIR /opt
 RUN wget https://dl.segger.com/files/embedded-studio/Setup_EmbeddedStudio_ARM_v542_linux_x64.tar.gz
 RUN tar -xzf Setup_EmbeddedStudio_ARM_v542_linux_x64.tar.gz
