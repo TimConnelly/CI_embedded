@@ -46,7 +46,7 @@ jobs:
         run: |
           echo ${{ secrets.GITHUB_TOKEN }} | docker pull ghcr.io/timconnelly/ses_build:latest 
           docker tag ghcr.io/timconnelly/ses_build:latest ses_build
-          docker build --target=ses_full --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache-new -t ses_full --load .
+          docker build --target=ses_full --cache-from=ghcr.io/timconnelly/ses_build --cache-to=type=local,dest=/tmp/.buildx-cache-new -t ses_full --load .
           docker images
           docker run --rm -i ses_full bash -c "/opt/ses/bin/emBuild -help"
 
